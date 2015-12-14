@@ -1,0 +1,75 @@
+/**
+ * Align
+ * 
+ * for nav and dots. 
+ */
+.visual-carousel.nav-left .owl-nav, .visual-carousel.dots-left .owl-dots{
+	text-align: left;
+}
+.visual-carousel.nav-center .owl-nav, .visual-carousel.dots-center .owl-dots{
+	text-align: center;
+}
+.visual-carousel.nav-right .owl-nav, .visual-carousel.dots-right .owl-dots{
+	text-align: right;
+}
+
+/**
+ * Position.
+ * 
+ * for controls. 
+ */
+/* nav and dots on top. */
+.visual-carousel.nav-top.dots-top{
+	padding-top: 25px;
+}
+.visual-carousel.nav-top.dots-top .owl-controls{
+	position: absolute;
+	top: -25px;
+	width: 100%; 
+}
+.visual-carousel.nav-top.dots-top .owl-nav, .visual-carousel.nav-top.dots-top .owl-dots, .visual-carousel.nav-bottom.dots-bottom .owl-nav, .visual-carousel.nav-bottom.dots-bottom .owl-dots{
+	width: 50%;
+	display: inline-block;
+}
+.visual-carousel.nav-top.dots-top.nav-right.dots-left .owl-dots{
+	float: left;
+}
+.visual-carousel.nav-bottom.dots-bottom.nav-right.dots-left .owl-dots{
+	float: left;
+}
+/* only dots */
+.visual-carousel.nav-top:not(.dots-top){
+	padding-top: 25px;
+}
+.visual-carousel.nav-top:not(.dots-top) .owl-nav{
+	position: absolute;
+	top: -25px;
+	width: 100%;
+}
+/* only nav */
+.visual-carousel.dots-top:not(.nav-top){
+	padding-top: 25px;
+}
+.visual-carousel.dots-top:not(.nav-top) .owl-dots{
+	position: absolute;
+	top: -25px;
+	width: 100%;
+}
+/* nav left right. */
+.visual-carousel.nav-left-right .owl-next, .visual-carousel.nav-left-right .owl-prev{
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.visual-carousel.nav-left-right .owl-next{
+	right: 0px;
+}
+.visual-carousel.nav-left-right .owl-prev{
+	left: 0px;
+}
+.visual-carousel.nav-left-right.dots-bottom .owl-dots, .visual-carousel.nav-left-right.dots-top .owl-dots{
+	position: absolute;
+}
+.visual-carousel.nav-left-right.dots-bottom, .visual-carousel.nav-left-right.dots-top{
+	padding-bottom: 25px;
+}

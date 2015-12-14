@@ -1,0 +1,33 @@
+/* Nav Style */
+.visual-carousel.template-default .owl-nav > div{
+    display: inline-block;
+    height: 20px;
+    background: #777;
+    line-height: 20px;
+    padding: 0 5px 0 5px;
+    text-align: center;
+    color: #FFF;
+}
+.visual-carousel.template-default .owl-nav > div.owl-prev{
+    margin-right: 2px;
+}
+
+/* Dot Style. */
+.visual-carousel.template-default .owl-dots .owl-dot{
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    display: inline-block;
+}
+.visual-carousel.template-default .owl-dots .owl-dot:not(:last-child){
+    margin-right: 1px;
+}
+.visual-carousel.template-default .owl-dots .owl-dot.active{
+    background: #ccc;
+}
+.visual-carousel.template-default .owl-dots .owl-dot:HOVER{
+
+}
+.visual-carousel.template-default .owl-dots .owl-dot:ACTIVE{
+
+}

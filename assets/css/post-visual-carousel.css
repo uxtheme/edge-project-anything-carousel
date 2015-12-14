@@ -1,0 +1,18 @@
+@CHARSET "ISO-8859-1";
+.wpb_el_type_param_group[data-vc-shortcode-param-name="responsive"] ul li .vc_param_group-wrapper .vc_column{
+	display: inline-block;
+    width: 147px;
+    padding-top: 15px;
+}
+.vc_images_select_param_block ul li{
+    display: inline-block;
+    width: 30%;
+}
+.vc_images_select_param_block ul li img{
+    width: 100%;
+    border: 3px solid #E0E0E0;
+    opacity: 0.5;
+}
+.vc_images_select_param_block ul li img.active{
+    opacity: 1;
+}
