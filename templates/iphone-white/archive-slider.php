@@ -21,6 +21,7 @@ do_action('visualcarousel/shortcodes/carousel/before');
 
 ?>
 <div class="<?php echo implode(' ', $_class); ?>">
+    <img class="visual-carousel-frame" alt="" src="<?php echo plugin_dir_url(__FILE__) . 'images/frame.png'; ?>">
 	<div class="visual-carousel-items"<?php echo visual_carousel()->process_attributes($data); ?>>
 
         <?php
@@ -38,7 +39,6 @@ do_action('visualcarousel/shortcodes/carousel/before');
         ?>
 	</div>
 </div>
-
 <?php
 /* after shortcode. */
 do_action('visualcarousel/shortcodes/carousel/after');

@@ -1,0 +1,84 @@
+/* Nav Style */
+.visual-carousel.template-iphone-white .owl-nav > div{
+    display: inline-block;
+    height: 20px;
+    background: #777;
+    line-height: 20px;
+    padding: 0 5px 0 5px;
+    text-align: center;
+    color: #FFF;
+}
+.visual-carousel.template-iphone-white .owl-nav > div.owl-prev{
+    margin-right: 2px;
+}
+
+/* Dot Style. */
+.visual-carousel.template-iphone-white .owl-dots .owl-dot{
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    display: inline-block;
+}
+.visual-carousel.template-iphone-white .owl-dots .owl-dot:not(:last-child){
+    margin-right: 1px;
+}
+.visual-carousel.template-iphone-white .owl-dots .owl-dot.active{
+    background: #ccc;
+}
+.visual-carousel.template-iphone-white .owl-dots .owl-dot:HOVER{
+
+}
+.visual-carousel.template-iphone-white .owl-dots .owl-dot:ACTIVE{
+
+}
+/* frame. */
+@media screen and (max-width: 480px){
+    .visual-carousel.template-iphone-white{
+        margin-top: 0%;
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+}
+@media screen and (min-width: 480px){
+    .visual-carousel.template-iphone-white{
+        margin-top: 20%;
+        margin-left: 3%;
+        margin-right: 2%;
+    }
+}
+@media screen and (min-width: 768px){
+    .visual-carousel.template-iphone-white{
+        margin-top: 21%;
+        margin-left: 3%;
+        margin-right: 2%;
+    }
+}
+@media screen and (min-width: 992px){
+    .visual-carousel.template-iphone-white{
+        margin-top: 22%;
+        margin-left: 5%;
+        margin-right: 4%;
+    }
+}
+@media screen and (min-width: 1200px){
+    .visual-carousel.template-iphone-white{
+        margin-top: 23%;
+        margin-left: 5.5%;
+        margin-right: 5%;
+    }
+}
+@media screen and (min-width: 1900px){
+    .visual-carousel.template-iphone-white{
+        margin-top: 24%;
+        margin-left: 6.5%;
+        margin-right: 5%;
+    }
+}
+.visual-carousel.template-iphone-white .visual-carousel-frame{
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translate(-50%);
+}
+

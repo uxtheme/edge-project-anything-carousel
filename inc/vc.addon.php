@@ -32,22 +32,9 @@ if (!class_exists('Visual_Carousel_vc_addon')) :
                 'add_params'
             ));
 
-            /* add shortcode "visual_carousel" */
-            add_shortcode('visual_carousel', array(
+            add_action('init', array(
                 $this,
-                'add_shortcode_visual_carousel'
-            ));
-
-            /* add shortcode "visual_carousel_item" */
-            add_shortcode('visual_carousel_item', array(
-                $this,
-                'add_shortcode_visual_carousel_item'
-            ));
-
-            /* custom param for vc. */
-            vc_add_shortcode_param('visual-carousel-number', array(
-                $this,
-                'number_param_settings_field'
+                'add_shortcode'
             ));
         }
 
@@ -67,6 +54,20 @@ if (!class_exists('Visual_Carousel_vc_addon')) :
             wp_register_script('visual-carousel', visual_carousel()->acess_url . 'js/visual-carousel.js', array(
                 'owl.carousel'
             ), '1.0.0', true);
+        }
+
+        function add_shortcode(){
+            /* add shortcode "visual_carousel" */
+            add_shortcode('visual_carousel', array(
+                $this,
+                'add_shortcode_visual_carousel'
+            ));
+
+            /* add shortcode "visual_carousel_item" */
+            add_shortcode('visual_carousel_item', array(
+                $this,
+                'add_shortcode_visual_carousel_item'
+            ));
         }
 
         function add_params()
@@ -621,26 +622,6 @@ if (!class_exists('Visual_Carousel_vc_addon')) :
                 ),
                 "js_view" => 'VcColumnView'
             ));
-        }
-
-        /**
-         * number field.
-         *
-         * @param
-         *            $settings
-         * @param
-         *            $value
-         * @return string
-         */
-        function number_param_settings_field($settings, $value)
-        {
-            ob_start();
-
-            echo '<div class="visual_carousel_number_param_block">';
-            echo '<input min="0" name="' . esc_attr($settings['param_name']) . '" class="wpb_vc_param_value wpb-textinput ' . esc_attr($settings['param_name']) . ' ' . esc_attr($settings['type']) . '_field" type="number" value="' . esc_attr($value) . '" style="width:100px;" />';
-            echo '</div>';
-
-            return ob_get_clean();
         }
 
         function add_shortcode_visual_carousel($atts, $content = '')

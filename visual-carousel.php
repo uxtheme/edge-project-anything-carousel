@@ -28,9 +28,6 @@ if (! class_exists('Visual_Carousel')) :
         /* single instance of the class */
         public $file = null;
 
-        /* base name. */
-        public $basename = null;
-
         /* base plugin_dir. */
         public $plugin_dir = null;
 
@@ -88,10 +85,7 @@ if (! class_exists('Visual_Carousel')) :
         private function setup_globals()
         {
             $this->file = __FILE__;
-            
-            /* base name. */
-            $this->basename = plugin_basename($this->file);
-            
+
             /* base plugin. */
             $this->plugin_dir = plugin_dir_path($this->file);
             $this->plugin_url = plugin_dir_url($this->file);
@@ -105,8 +99,8 @@ if (! class_exists('Visual_Carousel')) :
             $this->template_url = trailingslashit($this->plugin_url . 'templates');
             
             /* custom template. */
-            $this->theme_dir = trailingslashit(get_template_directory () . $this->basename);
-            $this->theme_url = trailingslashit(get_template_directory_uri() . $this->basename);
+            $this->theme_dir = trailingslashit(get_template_directory () . '/visual-carousel');
+            $this->theme_url = trailingslashit(get_template_directory_uri() . '/visual-carousel');
         }
 
         /**
@@ -127,24 +121,6 @@ if (! class_exists('Visual_Carousel')) :
             add_action('admin_enqueue_scripts', array(
                 $this,
                 'add_admin_script'
-            ));
-            
-            // register plugin settings.
-            add_action('admin_init', array(
-                $this,
-                'register_plugin_settings'
-            ));
-            
-            // add admin page.
-            add_action('admin_menu', array(
-                $this,
-                'add_admin_page'
-            ));
-            
-            /* add link setting. */
-            add_filter('plugin_action_links_' . $this->basename, array(
-                $this,
-                'plugin_action_links'
             ));
         }
 
@@ -195,34 +171,6 @@ if (! class_exists('Visual_Carousel')) :
             wp_enqueue_style('post-visual-carousel', $this->acess_url . 'css/post-visual-carousel.css');
         }
 
-        /**
-         * admin setting.
-         */
-        function register_plugin_settings()
-        {
-            register_setting('visual-tooltip-settings-group', 'visual-tooltip');
-        }
-
-        /**
-         * admin panel.
-         */
-        function add_admin_page()
-        {
-            add_options_page(esc_html__('Visual Carousel', 'visual-tooltip'), esc_html__('Visual Carousel', 'visual-tooltip'), 'manage_options', 'vc_vt_admin', array(
-                $this,
-                'display_admin_page'
-            ));
-        }
-
-        /**
-         * admin panel content.
-         */
-        function display_admin_page()
-        {
-            
-            // require_once $this->plugin_dir . 'inc/vc.admin.php';
-        }
-
         public static function process_attributes($attributes){
 
             $attr_s = '';
@@ -232,21 +180,6 @@ if (! class_exists('Visual_Carousel')) :
             }
 
             return $attr_s;
-        }
-
-        /**
-         * Show action links on the plugin screen.
-         *
-         * @param mixed $links
-         *            Plugin Action links
-         * @return array
-         */
-        function plugin_action_links($links)
-        {
-            $action_links = array(
-                'settings' => '<a href="' . admin_url('options-general.php?page=vc_vt_admin') . '" title="' . esc_attr(esc_html__('View Visual Tooltip Settings', 'visual-tooltip')) . '">' . esc_html__('Settings', 'visual-tooltip') . '</a>'
-            );
-            return array_merge($action_links, $links);
         }
     }
 

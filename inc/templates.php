@@ -21,12 +21,30 @@ if(!function_exists('visual_carousel_get_template_style')):
 
         global $shortcode_template;
 
+        $_css = $_js = '';
+
+        /* css. */
         if (file_exists(visual_carousel()->theme_dir . "{$shortcode_template}/visual-carousel-{$shortcode_template}.css")) {
-            wp_enqueue_style('visual-carousel-' . $shortcode_template, visual_carousel()->theme_url . "{$shortcode_template}/visual-carousel-{$shortcode_template}.css");
+            $_css = visual_carousel()->theme_url;
+
         }
         elseif (file_exists(visual_carousel()->template_dir . "{$shortcode_template}/visual-carousel-{$shortcode_template}.css")) {
-            wp_enqueue_style('visual-carousel-' . $shortcode_template, visual_carousel()->template_url . "{$shortcode_template}/visual-carousel-{$shortcode_template}.css");
+            $_css = visual_carousel()->template_url;
         }
+
+        /* js */
+        if (file_exists(visual_carousel()->theme_dir . "{$shortcode_template}/visual-carousel-{$shortcode_template}.js")) {
+            $_js = visual_carousel()->theme_url;
+        }
+        elseif (file_exists(visual_carousel()->template_dir . "{$shortcode_template}/visual-carousel-{$shortcode_template}.js")) {
+            $_js = visual_carousel()->template_url;
+        }
+
+        if($_css)
+        wp_enqueue_style('visual-carousel-' . $shortcode_template, $_css . "{$shortcode_template}/visual-carousel-{$shortcode_template}.css");
+
+        if($_js)
+        wp_enqueue_script('visual-carousel-' . $shortcode_template, $_js . "{$shortcode_template}/visual-carousel-{$shortcode_template}.js");
     }
 
 endif;
@@ -70,7 +88,7 @@ if (!function_exists('visual_carousel_get_template_part')) :
             return $template;
 
         // load template file.
-        load_template($template, true);
+        load_template($template, false);
     }
 
 endif;
